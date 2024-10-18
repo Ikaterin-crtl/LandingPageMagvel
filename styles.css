@@ -1,0 +1,359 @@
+/* Estilo da Seção Hero */
+.hero {
+    display: flex; /* Utiliza flexbox para layout horizontal */
+    align-items: center; /* Alinha itens verticalmente no centro */
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    background: linear-gradient(to bottom, #F8F9F2, #E1E7B9); /* Gradiente sutil de off-white para verde suave */
+    padding: 50px 20px; /* Espaçamento interno */
+    border-radius: 15px; /* Bordas arredondadas na seção */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo do Texto da Seção Hero */
+.hero-text {
+    flex: 1; /* Para que o texto ocupe um lado do espaço */
+    color: #333; /* Cor do texto */
+    max-width: 600px; /* Largura máxima do texto */
+}
+
+/* Estilo do Título e Subtítulo na Seção Hero */
+.hero h1 {
+    font-size: 3.5em; /* Tamanho do título */
+    margin: 0; /* Remove margens */
+    font-weight: bold; /* Negrito */
+}
+
+.hero h2 {
+    font-size: 1.75em; /* Tamanho do subtítulo */
+    margin: 10px 0; /* Margem acima e abaixo do subtítulo */
+    color: #666; /* Cor do subtítulo */
+}
+
+/* Estilo do Botão na Seção Hero */
+.hero-button {
+    display: inline-block; /* Torna o botão um bloco em linha */
+    padding: 15px 30px; /* Preenchimento interno do botão */
+    background-color: #F5FF7D; /* Cor de fundo do botão (ou use #D0E02A) */
+    color: #333; /* Cor do texto */
+    font-family: 'Poppins', sans-serif; /* Fonte moderna */
+    font-size: 18px; /* Tamanho da fonte do botão */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border: 2px solid #000; /* Contorno preto */
+    border-radius: 25px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra no botão */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para hover */
+    margin-top: 20px; /* Margem acima do botão */
+}
+
+/* Efeito de hover para o botão */
+.hero-button:hover {
+    background-color: #D0E02A; /* Cor de fundo mais escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente o botão ao passar o mouse */
+}
+
+/* Estilo da Imagem na Seção Hero */
+.hero-image {
+    flex: 1; /* Para que a imagem ocupe o outro lado do espaço */
+    display: flex; /* Utiliza flexbox para centralizar a imagem */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.hero-image img {
+    width: 100%; /* Ajuste o tamanho da imagem para ocupar 100% do espaço disponível */
+    max-width: 700px; /* Aumenta a largura máxima da imagem para 700px */
+    height: auto; /* Mantém a proporção */
+    border-radius: 15px; /* Bordas arredondadas na imagem */
+    margin-top: 20px; /* Adiciona espaçamento acima da imagem */
+}
+
+
+/* Estilo para a seção de serviços */
+.servicos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens */
+    margin: 40px 20px; /* Aumenta a margem lateral para centralização */
+    padding: 20px;
+    background-color: #FFFFFF; /* Fundo branco minimalista */
+}
+
+/* Ajuste para as imagens dos serviços */
+.service-icon {
+    width: 60px; /* Define uma largura para os ícones */
+    height: 60px; /* Define uma altura fixa para manter a proporção */
+    display: block;
+    margin: 0 auto 10px; /* Centraliza e adiciona espaçamento abaixo da imagem */
+}
+
+/* Estilo para os quadrados */
+.quadrado {
+    flex: 0 0 calc(50% - 30px); /* 50% menos a margem total para duas colunas */
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+    background-color: #E8F5E9; /* Cor de fundo clara e suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border-radius: 20px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+    margin: 15px; /* Margem entre os quadrados */
+    padding: 20px; /* Preenchimento interno */
+    box-sizing: border-box; /* Inclui o padding nas dimensões */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo do texto dentro dos quadrados */
+.quadrado h2 { 
+    font-family: 'Poppins', sans-serif; /* Tipografia moderna */
+    font-size: 20px; /* Tamanho da fonte ajustado */
+    color: #333; /* Cor do texto */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+.quadrado p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #555; /* Cor do subtítulo */
+}
+
+/* Cores escondidas */
+.quadrado.green-lime {
+    background-color: #A5D6A7; /* Verde mais marcante */
+}
+
+.quadrado.dark-gray {
+    background-color: #333; /* Cinza escuro */
+    color: #FFF; /* Texto branco no fundo escuro */
+}
+
+/* Sombra quando ativo */
+.quadrado.green-lime.active,
+.quadrado.dark-gray.active {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra aumentada quando ativo */
+}
+
+/* Efeito de ativação rápida */
+.quadrado.active {
+    transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Efeito rápido */
+}
+
+/* Efeito de hover */
+.quadrado:hover {
+    background-color: #B2DFDB; /* Cor mais intensa ao passar o mouse */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Efeito de sombra maior */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .quadrado {
+        flex: 0 0 calc(50% - 20px); /* Mantém duas colunas em telas menores */
+        margin: 10px; /* Margem reduzida para melhor ajuste */
+    }
+
+    .servicos .quadrado {
+        height: auto; /* Altura automática para melhor ajuste */
+    }
+}
+
+
+/* Estilo para a seção de serviços */
+.servicos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens */
+    margin: 40px 20px; /* Aumenta a margem lateral para centralização */
+    padding: 20px;
+    background-color: #FFFFFF; /* Fundo branco minimalista */
+}
+
+/* Ajuste para as imagens dos serviços */
+.service-icon {
+    width: 60px; /* Define uma largura para os ícones */
+    height: 60px; /* Define uma altura fixa para manter a proporção */
+    display: block;
+    margin: 0 auto 10px; /* Centraliza e adiciona espaçamento abaixo da imagem */
+}
+
+/* Estilo para os quadrados */
+.quadrado {
+    flex: 0 0 calc(50% - 30px); /* 50% menos a margem total para duas colunas */
+    height: auto; /* Permite que a altura se ajuste ao conteúdo */
+    background-color: #E8F5E9; /* Cor de fundo clara e suave */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border-radius: 20px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra mais sutil */
+    margin: 15px; /* Margem entre os quadrados */
+    padding: 20px; /* Preenchimento interno */
+    box-sizing: border-box; /* Inclui o padding nas dimensões */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo do texto dentro dos quadrados */
+.quadrado h2 { 
+    font-family: 'Poppins', sans-serif; /* Tipografia moderna */
+    font-size: 20px; /* Tamanho da fonte ajustado */
+    color: #333; /* Cor do texto */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+}
+
+.quadrado p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #555; /* Cor do subtítulo */
+}
+
+/* Cores escondidas */
+.quadrado.green-lime {
+    background-color: #A5D6A7; /* Verde mais marcante */
+}
+
+.quadrado.dark-gray {
+    background-color: #333; /* Cinza escuro */
+    color: #FFF; /* Texto branco no fundo escuro */
+}
+
+/* Sombra quando ativo */
+.quadrado.green-lime.active,
+.quadrado.dark-gray.active {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra aumentada quando ativo */
+}
+
+/* Efeito de ativação rápida */
+.quadrado.active {
+    transition: background-color 0.1s ease, box-shadow 0.1s ease; /* Efeito rápido */
+}
+
+/* Efeito de hover */
+.quadrado:hover {
+    background-color: #B2DFDB; /* Cor mais intensa ao passar o mouse */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Efeito de sombra maior */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .quadrado {
+        flex: 0 0 calc(50% - 20px); /* Mantém duas colunas em telas menores */
+        margin: 10px; /* Margem reduzida para melhor ajuste */
+    }
+
+    .servicos .quadrado {
+        height: auto; /* Altura automática para melhor ajuste */
+    }
+}
+
+.benefits {
+    background-color: #F8F9F2; /* Cor de fundo suave */
+    padding: 40px 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+}
+
+.benefits h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px; /* Aumentando o espaço abaixo do título */
+    color: #333;
+}
+
+.benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.benefits li {
+    position: relative;
+    padding: 25px; /* Aumentando o espaço interno */
+    margin: 20px 0; /* Aumentando a margem entre os itens */
+    background-color: #FFFFFF; /* Fundo branco para os itens */
+    border: 1px solid #B0D457; /* Borda verde mais suave */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transições suaves */
+    font-size: 1.1em; /* Aumentando um pouco o tamanho da fonte para melhor legibilidade */
+    color: #444; /* Mudando a cor do texto para um tom mais suave */
+}
+
+.benefits li::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background-color: #F8F9F2; /* Cor de fundo da seção */
+    transform: skewY(-5deg);
+    z-index: -1;
+}
+
+.benefits li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
+}
+
+
+/* Estilo Geral do Formulário */
+form {
+    background-color: #F8F9F2; /* Cor de fundo suave */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 600px; /* Largura máxima do formulário */
+    margin: 20px auto; /* Centraliza o formulário na página */
+}
+
+/* Estilo dos Campos de Entrada */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Largura total */
+    padding: 15px; /* Preenchimento interno */
+    margin: 10px 0; /* Margem entre os campos */
+    border: 2px solid #B0D457; /* Borda verde suave */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 1em; /* Tamanho da fonte */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito de hover nos campos de entrada */
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+    border-color: #D0E02A; /* Cor da borda ao passar o mouse */
+    box-shadow: 0 0 5px rgba(208, 224, 42, 0.6); /* Sombra ao passar o mouse */
+}
+
+/* Estilo do Botão do Formulário */
+button {
+    background-color: #F5FF7D; /* Cor de fundo do botão */
+    color: #333; /* Cor do texto */
+    padding: 15px 30px; /* Preenchimento interno do botão */
+    border: none; /* Sem borda */
+    border-radius: 25px; /* Bordas arredondadas */
+    font-size: 18px; /* Tamanho da fonte */
+    cursor: pointer; /* Muda o cursor para pointer */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+    margin-top: 20px; /* Margem acima do botão */
+}
+
+/* Efeito de hover para o botão */
+button:hover {
+    background-color: #D0E02A; /* Cor do botão ao passar o mouse */
+    transform: translateY(-3px); /* Salto ao passar o mouse */
+}
+
+/* Efeito de foco nos campos de entrada */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none; /* Remove a borda padrão de foco */
+    border-color: #D0E02A; /* Muda a cor da borda quando em foco */
+    box-shadow: 0 0 5px rgba(208, 224, 42, 0.6); /* Sombra ao focar no campo */
+}

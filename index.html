@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magvel - Manutenção Exclusiva para Carrinhos de Golfe</title>
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="styles.css"> 
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-text">
+            <h1>A Manutenção Que Seu Carrinho de Golfe Merece</h1>
+            <h2>Serviços Personalizados para o Melhor Desempenho</h2>           
+            <a href="#formulario" class="hero-button">Solicite uma Consulta</a> <!-- Botão adicionado -->
+        </div>
+        <div class="hero-image">
+            <img src="./assets/imagens/hero/ChatOn_image-removebg-preview.png" alt="Golf Cart" class="large-golf-cart"> <!-- Imagem do carrinho -->
+        </div>
+    </header>
+    
+    <!-- Seção de Serviços -->
+    <div class="servicos" id="servicos">
+        <div class="quadrado green-lime" id="quadrado1">
+            <img src="./assets/imagens/Icons/manutenção_preventiva.gif" alt="Manutenção Preventiva" class="service-icon">
+            <h2>Manutenção Preventiva e Corretiva</h2>
+            <p>Garanta que seu veículo esteja sempre em ótimas condições com nossa manutenção especializada.</p>
+        </div>
+        <div class="quadrado dark-gray" id="quadrado2">
+            <img src="./assets/imagens/Icons/diagnostico_de_falhas.gif" alt="Diagnóstico de Falhas" class="service-icon">
+            <h2>Diagnóstico de Falhas</h2>
+            <p>Utilizamos tecnologia avançada para identificar e corrigir problemas antes que se tornem críticos.</p>
+        </div>
+        <div class="quadrado dark-gray" id="quadrado3">
+            <img src="./assets/imagens/Icons/troca_de_baterias.gif" alt="Substituição de Baterias" class="service-icon">
+            <h2>Substituição de Baterias</h2>
+            <p>Troca de baterias com peças de alta qualidade para manter o desempenho ideal do seu veículo.</p>
+        </div>
+        <div class="quadrado green-lime" id="quadrado4">
+            <img src="./assets/imagens/Icons/motor.gif" alt="Reparo de Motores Elétricos" class="service-icon">
+            <h2>Reparo de Motores Elétricos</h2>
+            <p>Serviço especializado para reparar e otimizar o funcionamento dos motores elétricos dos veículos.</p>
+        </div>
+        <div class="quadrado green-lime" id="quadrado5">
+            <img src="./assets/imagens/Icons/inspeção_de_seguranca.gif" alt="Inspeções de Segurança" class="service-icon">
+            <h2>Inspeções de Segurança</h2>
+            <p>Inspeções detalhadas para assegurar que todos os aspectos do seu veículo estejam funcionando com segurança.</p>
+        </div>
+        <div class="quadrado dark-gray" id="quadrado6">
+            <img src="./assets/imagens/Icons/manutencao_freio.gif" alt="Manutenção em Freios e Suspensão" class="service-icon">
+            <h2>Manutenção em Freios e Suspensão</h2>
+            <p>Verificamos e ajustamos o sistema de freios e suspensão para uma condução mais segura e confortável.</p>
+        </div>
+        <div class="quadrado green-lime" id="quadrado7">
+            <img src="./assets/imagens/Icons/pneu.gif" alt="Troca de Pneus de Veículo Elétrico no Local" class="service-icon">
+            <h2>Troca de Pneus de Veículo Elétrico no Local</h2>
+            <p>Serviço de troca de pneus no local para maior conveniência e rapidez.</p>
+        </div>
+    </div>
+
+    <!-- Seção de Benefícios -->
+<section class="benefits">
+    <h2>Por Que Escolher a Magvel?</h2>
+    <ul>
+        <li>
+            <strong>Atendimento Personalizado:</strong> Cada serviço é adaptado às suas necessidades específicas.
+        </li>
+        <li>
+            <strong>Expertise Reconhecida:</strong> Equipe altamente qualificada com vasta experiência.
+        </li>
+        <li>
+            <strong>Comodidade:</strong> Serviço em sua localização, sem preocupações.
+        </li>
+        <li>
+            <strong>Qualidade Garantida:</strong> Utilizamos apenas os melhores materiais e técnicas.
+        </li>
+    </ul>
+</section>
+
+    <!-- Seção do Formulário -->
+    <section class="contact-form-section" id="formulario">
+        <div class="contact-form-container">
+            <form id="maintenanceForm" class="contact-form" method="POST" action="process_form.php">
+                <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+                <input type="tel" id="phone" name="phone" required placeholder="Seu telefone" maxlength="15">
+                <select id="service" name="service" required>
+                    <option value="" disabled selected>Selecione um serviço</option>
+                    <option value="Manutenção Preventiva">Manutenção Preventiva</option>
+                    <option value="Manutenção Corretiva">Manutenção Corretiva</option>
+                    <option value="Diagnóstico de Falhas">Diagnóstico de Falhas</option>
+                    <option value="Substituição de Baterias">Substituição de Baterias</option>
+                    <option value="Reparo de Motores Elétricos">Reparo de Motores Elétricos</option>
+                    <option value="Inspeções de Segurança">Inspeções de Segurança</option>
+                    <option value="Manutenção em Freios e Suspensão">Manutenção em Freios e Suspensão</option>
+                    <option value="Troca de Pneus">Troca de Pneus</option>
+                </select>
+                <textarea id="message" name="message" rows="4" required placeholder="Digite sua mensagem aqui..."></textarea>
+                <button type="submit" class="cta-button">Enviar</button>
+            </form>
+            <div id="feedbackMessage" style="display:none; margin-top: 10px;"></div> <!-- Mensagem de feedback -->
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">        
+        <p>Telefone: (19) 3246-1235 | Email: contato@magvel.com.br</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
