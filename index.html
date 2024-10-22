@@ -63,32 +63,21 @@
         </div>
     </div>
 
-    <!-- Seção de Benefícios -->
-<section class="benefits">
-    <h2>Por Que Escolher a Magvel?</h2>
-    <ul>
-        <li>
-            <strong>Atendimento Personalizado:</strong> Cada serviço é adaptado às suas necessidades específicas.
-        </li>
-        <li>
-            <strong>Expertise Reconhecida:</strong> Equipe altamente qualificada com vasta experiência.
-        </li>
-        <li>
-            <strong>Comodidade:</strong> Serviço em sua localização, sem preocupações.
-        </li>
-        <li>
-            <strong>Qualidade Garantida:</strong> Utilizamos apenas os melhores materiais e técnicas.
-        </li>
-    </ul>
-</section>
-
-    <!-- Seção do Formulário -->
-    <section class="contact-form-section" id="formulario">
-        <div class="contact-form-container">
-            <form id="maintenanceForm" class="contact-form" method="POST" action="process_form.php">
+   <!-- Seção do Formulário -->
+<section class="contact-form-section" id="formulario">
+    <h2>Entre em Contato</h2>
+    <div class="contact-form-container">
+        <form id="maintenanceForm" class="contact-form" method="POST" action="process_form.php">
+            <div class="form-field">
                 <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+            </div>
+            <div class="form-field">
                 <input type="email" id="email" name="email" required placeholder="Seu e-mail">
+            </div>
+            <div class="form-field">
                 <input type="tel" id="phone" name="phone" required placeholder="Seu telefone" maxlength="15">
+            </div>
+            <div class="form-field">
                 <select id="service" name="service" required>
                     <option value="" disabled selected>Selecione um serviço</option>
                     <option value="Manutenção Preventiva">Manutenção Preventiva</option>
@@ -100,16 +89,19 @@
                     <option value="Manutenção em Freios e Suspensão">Manutenção em Freios e Suspensão</option>
                     <option value="Troca de Pneus">Troca de Pneus</option>
                 </select>
+            </div>
+            <div class="form-field">
                 <textarea id="message" name="message" rows="4" required placeholder="Digite sua mensagem aqui..."></textarea>
-                <button type="submit" class="cta-button">Enviar</button>
-            </form>
-            <div id="feedbackMessage" style="display:none; margin-top: 10px;"></div> <!-- Mensagem de feedback -->
-        </div>
-    </section>
+            </div>
+            <button type="submit" class="cta-button">Enviar</button>
+        </form>
+        <div id="feedbackMessage" style="display:none; margin-top: 10px;"></div>
+    </div>
+</section>
 
     <!-- Rodapé -->
     <footer class="footer">        
-        <p>Telefone: (19) 3246-1235 | Email: contato@magvel.com.br</p>
+        <p>Telefone: (19) 3246-1235 | Email: <a href="mailto:contato@magvel.com.br">contato@magvel.com.br</a></p>
     </footer>
 
     <script src="script.js"></script>

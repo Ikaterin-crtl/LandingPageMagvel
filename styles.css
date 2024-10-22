@@ -249,111 +249,153 @@
     }
 }
 
-.benefits {
-    background-color: #F8F9F2; /* Cor de fundo suave */
-    padding: 40px 20px;
-    border-radius: 15px;
-    text-align: center;
-    position: relative;
+/* Estilos Globais */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    box-sizing: border-box; /* Para incluir padding e borda */
 }
 
-.benefits h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px; /* Aumentando o espaço abaixo do título */
+/* Estilo da Seção do Formulário */
+.contact-form-section {
+    background-color: #f9f9f9; /* Cor de fundo leve */
+    padding: 40px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+/* Estilos para o Título */
+.contact-form-section h2 {
+    font-size: 2.5em; /* Tamanho do título */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilos dos Campos de Entrada */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 80%; /* Ajustada para 80% da largura do formulário */
+    padding: 10px; /* Espaçamento interno */
+    margin: 20px 0; /* Espaçamento entre os campos */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
     color: #333;
-}
-
-.benefits ul {
-    list-style: none;
-    padding: 0;
-}
-
-.benefits li {
-    position: relative;
-    padding: 25px; /* Aumentando o espaço interno */
-    margin: 20px 0; /* Aumentando a margem entre os itens */
-    background-color: #FFFFFF; /* Fundo branco para os itens */
-    border: 1px solid #B0D457; /* Borda verde mais suave */
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transições suaves */
-    font-size: 1.1em; /* Aumentando um pouco o tamanho da fonte para melhor legibilidade */
-    color: #444; /* Mudando a cor do texto para um tom mais suave */
-}
-
-.benefits li::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background-color: #F8F9F2; /* Cor de fundo da seção */
-    transform: skewY(-5deg);
-    z-index: -1;
-}
-
-.benefits li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Sombra mais suave */
-}
-
-
-/* Estilo Geral do Formulário */
-form {
-    background-color: #F8F9F2; /* Cor de fundo suave */
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    max-width: 600px; /* Largura máxima do formulário */
-    margin: 20px auto; /* Centraliza o formulário na página */
-}
-
-/* Estilo dos Campos de Entrada */
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%; /* Largura total */
-    padding: 15px; /* Preenchimento interno */
-    margin: 10px 0; /* Margem entre os campos */
-    border: 2px solid #B0D457; /* Borda verde suave */
-    border-radius: 8px; /* Bordas arredondadas */
-    font-size: 1em; /* Tamanho da fonte */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
 }
 
-/* Efeito de hover nos campos de entrada */
-input[type="text"]:hover,
-input[type="email"]:hover,
-textarea:hover {
-    border-color: #D0E02A; /* Cor da borda ao passar o mouse */
-    box-shadow: 0 0 5px rgba(208, 224, 42, 0.6); /* Sombra ao passar o mouse */
-}
-
-/* Estilo do Botão do Formulário */
-button {
-    background-color: #F5FF7D; /* Cor de fundo do botão */
+/* Estilos do Botão */
+.contact-form button {
+    padding: 15px 30px; /* Espaçamento interno */
+    background: linear-gradient(145deg, rgba(245, 255, 125, 1) 0%, rgba(245, 255, 125, 0.5) 100%); /* Gradiente do verde */
     color: #333; /* Cor do texto */
-    padding: 15px 30px; /* Preenchimento interno do botão */
-    border: none; /* Sem borda */
+    border: none; /* Remove borda padrão */
     border-radius: 25px; /* Bordas arredondadas */
     font-size: 18px; /* Tamanho da fonte */
-    cursor: pointer; /* Muda o cursor para pointer */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
-    margin-top: 20px; /* Margem acima do botão */
+    cursor: pointer; /* Cursor em forma de mão */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave */
 }
 
-/* Efeito de hover para o botão */
-button:hover {
-    background-color: #D0E02A; /* Cor do botão ao passar o mouse */
-    transform: translateY(-3px); /* Salto ao passar o mouse */
+/* Efeito de Hover para o Botão de Envio */
+.contact-form button:hover {
+    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+    background-color: #D0E02A; /* Muda a cor ao passar o mouse */
 }
 
-/* Efeito de foco nos campos de entrada */
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    outline: none; /* Remove a borda padrão de foco */
-    border-color: #D0E02A; /* Muda a cor da borda quando em foco */
-    box-shadow: 0 0 5px rgba(208, 224, 42, 0.6); /* Sombra ao focar no campo */
+/* Efeitos de Foco */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: rgba(245, 255, 125, 0.8); /* Borda verde mais suave ao focar */
+    box-shadow: 0 0 10px rgba(245, 255, 125, 0.5); /* Efeito de brilho ao focar */
+}
+
+/* Efeitos de Hover nos Campos */
+.contact-form input:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+    box-shadow: 0 0 8px 2px rgba(245, 255, 125, 0.8); /* Brilho suave em amarelo */
+}
+
+/* Efeitos e Animações */
+.input-field.filled {
+    background: linear-gradient(to right, rgba(245, 255, 125, 0.5), rgba(245, 255, 125, 0.5)) no-repeat;
+    background-size: 100% 100%;
+    animation: slide-reflection 0.4s forwards; /* Efeito de animação */
+}
+
+/* Efeitos de Carregamento */
+.form-field {
+    transition: opacity 0.5s ease; /* Transição suave da opacidade */
+    opacity: 1; /* Torna os campos visíveis desde o início */
+}
+
+.form-field.show {
+    opacity: 1; /* Torna o campo visível */
+}
+
+.form-field.hide {
+    opacity: 0; /* Torna o campo invisível */
+}
+
+.form-field.loading {
+    background-color: #f5ff7d; /* Cor de fundo enquanto carrega */
+    animation: loadingEffect 1s forwards; /* Animação de carregamento */
+}
+
+/* Estilo da Luz */
+.luz {
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.5s ease-in; /* Transição suave para a opacidade */
+}
+
+/* Classe ativa para fade-in */
+.luz.active {
+    opacity: 1; /* Visível */
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 10px;
+        width: 100%;
+    }
+    input, textarea, button {
+        font-size: 1rem;
+    }
+}
+
+/* Keyframes de Animação */
+@keyframes loadingEffect {
+    0% {
+        transform: scale(1); /* Tamanho original */
+    }
+    50% {
+        transform: scale(1.05); /* Aumenta levemente */
+    }
+    100% {
+        transform: scale(1); /* Retorna ao tamanho original */
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9); /* Um pouco menor no início */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Retorna ao tamanho original */
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1); /* Tamanho original */
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9); /* Um pouco menor ao sair */
+    }
 }
