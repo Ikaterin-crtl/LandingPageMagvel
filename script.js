@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const phoneInput = document.getElementById('phone');
     let currentFieldIndex = 0;
 
+    // Cores dos quadrados
     const colors = ['green-lime', 'dark-gray', 'dark-gray', 'green-lime', 'green-lime', 'dark-gray'];
     let currentIndex = 0;
     let intervalId;
@@ -35,12 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
             currentIndex = 0;
             clearInterval(intervalId);
             resetQuadrados();
-            setTimeout(startEffect, 13000);
+            setTimeout(startEffect, 5000); // Reduzido de 13000ms para 5000ms
         }
     };
 
     const startEffect = () => {
-        intervalId = setInterval(activateQuadrados, 150);
+        intervalId = setInterval(activateQuadrados, 100); // Reduzido de 150ms para 100ms
     };
 
     const handleScroll = () => {
@@ -66,67 +67,87 @@ document.addEventListener("DOMContentLoaded", function () {
         this.value = value;
     });
 
-    // Efeito de carregamento do formulário
+    // Efeito de deslizamento de cor dentro do campo
     function simulateLoading() {
         if (currentFieldIndex < fields.length) {
-            fields[currentFieldIndex].classList.add('loading', 'fade'); // Adiciona classes de loading e fade
+            const currentField = fields[currentFieldIndex];
+
+            // Adiciona a classe que ativa a animação do deslizamento
+            currentField.classList.add('animate');
 
             setTimeout(() => {
-                fields[currentFieldIndex].classList.remove('show', 'loading', 'fade');
-                fields[currentFieldIndex].classList.add('hide');
-                currentFieldIndex++;
+                // Remove a animação após ser concluída
+                currentField.classList.remove('animate');
+                currentField.classList.add('exit');
 
+                // Verifica se ainda há campos a serem processados
                 if (currentFieldIndex < fields.length) {
-                    fields[currentFieldIndex].classList.remove('hide');
-                    fields[currentFieldIndex].classList.add('show');
-                    simulateLoading();
-                } else {
-                    // Rola para o topo da página após o envio
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                    console.log('Formulário enviado!'); // Aqui você pode adicionar algum efeito de feedback após o envio
+                    // Espere a animação de saída terminar antes de ocultar o campo
+                    setTimeout(() => {
+                        currentField.classList.add('hide'); // Esconde o campo
+                        currentFieldIndex++;
+                        if (currentFieldIndex < fields.length) {
+                            fields[currentFieldIndex].classList.remove('hide'); // Mostra o próximo campo
+                            simulateLoading(); // Passa para o próximo campo
+                        } else {
+                            // Reinicia o efeito para voltar ao primeiro campo
+                            setTimeout(() => {
+                                fields.forEach(field => {
+                                    field.classList.add('hide'); // Esconde todos os campos
+                                });
+                                currentFieldIndex = 0; // Reinicia o índice
+                                fields[currentFieldIndex].classList.remove('hide'); // Mostra o primeiro campo novamente
+                            }, 1000); // Tempo para exibir a mensagem de feedback ou qualquer outra animação
+                        }
+                    }, 500); // Tempo da animação de saída
                 }
-            }, 1000); // Duração da animação de carregamento
+            }, 1000); // Tempo que a animação dura (igual ao CSS transition)
         }
     }
 
-    // Evento de submissão
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        currentFieldIndex = 0; // Reinicia o índice ao enviar o formulário
-        fields.forEach(field => {
-            field.classList.add('hide'); // Esconde todos os campos ao enviar
-        });
-        simulateLoading(); // Inicia a animação de carregamento
+    // Envio do formulário
+    form.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Previne o comportamento padrão de envio
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Inicia a simulação de loading
+        simulateLoading();
+
+        try {
+            // Envio para o Make
+            await fetch('https://hook.us2.make.com/3wnssofbcaqfpxpdy97q8xrb2lj87f65', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Envio para o AWS Lambda
+            await fetch('https://7vxvwzkgkpehvu4imjo6tri5ge0gyarh.lambda-url.us-east-1.on.aws/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Oculta o formulário
+            form.style.display = 'none';
+
+            // Rola suavemente para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            alert('Formulário enviado com sucesso!'); // Feedback ao usuário
+            form.reset(); // Limpa o formulário após o envio
+        } catch (error) {
+            console.error('Erro ao enviar o formulário:', error);
+            alert('Ocorreu um erro ao enviar o formulário. Tente novamente mais tarde.');
+        }
     });
 
+    // Inicializa o efeito de quadrados
     window.addEventListener('scroll', handleScroll);
-
-    // Adiciona eventos para os quadrados
-    quadrados.forEach(quadrado => {
-        quadrado.addEventListener('mouseenter', () => {
-            quadrado.classList.add('jump', 'active');
-        });
-
-        quadrado.addEventListener('mouseleave', () => {
-            quadrado.classList.remove('jump', 'active');
-        });
-    });
-
-    // Função para mostrar os campos do formulário com atraso
-    const showFields = () => {
-        let delay = 0;
-        fields.forEach((field, index) => {
-            setTimeout(() => {
-                field.classList.add('loading'); // Adiciona a classe de carregamento
-                field.style.opacity = '1'; // Torna o campo visível
-                field.classList.remove('hide'); // Remove a classe hide se estava escondido
-            }, delay);
-            delay += 500; // Aumenta o atraso a cada campo
-        });
-    };
-
-    showFields(); // Chama a função para mostrar os campos
 });

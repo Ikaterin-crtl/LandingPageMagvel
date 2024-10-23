@@ -263,7 +263,6 @@
     text-align: center; /* Centraliza o conteúdo */
 }
 
-/* Estilos para o Título */
 .contact-form-section h2 {
     font-size: 2.5em; /* Tamanho do título */
     margin-bottom: 20px; /* Espaço abaixo do título */
@@ -280,8 +279,24 @@
     border-radius: 8px;
     font-size: 1rem;
     color: #333;
+    background-color: rgba(245, 255, 125, 0.5); /* Fundo transparente */
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+/* Efeitos de Foco */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: rgba(245, 255, 125, 0.8); /* Borda verde mais suave ao focar */
+    box-shadow: 0 0 10px rgba(245, 255, 125, 0.5); /* Efeito de brilho ao focar */
+}
+
+/* Efeitos de Hover nos Campos */
+.contact-form input:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+    box-shadow: 0 0 8px 2px rgba(245, 255, 125, 0.8); /* Brilho suave em amarelo */
 }
 
 /* Estilos do Botão */
@@ -302,67 +317,28 @@
     background-color: #D0E02A; /* Muda a cor ao passar o mouse */
 }
 
-/* Efeitos de Foco */
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus {
-    border-color: rgba(245, 255, 125, 0.8); /* Borda verde mais suave ao focar */
-    box-shadow: 0 0 10px rgba(245, 255, 125, 0.5); /* Efeito de brilho ao focar */
-}
-
-/* Efeitos de Hover nos Campos */
-.contact-form input:hover,
-.contact-form select:hover,
-.contact-form textarea:hover {
-    box-shadow: 0 0 8px 2px rgba(245, 255, 125, 0.8); /* Brilho suave em amarelo */
-}
-
-/* Efeitos e Animações */
-.input-field.filled {
-    background: linear-gradient(to right, rgba(245, 255, 125, 0.5), rgba(245, 255, 125, 0.5)) no-repeat;
-    background-size: 100% 100%;
-    animation: slide-reflection 0.4s forwards; /* Efeito de animação */
-}
-
-/* Efeitos de Carregamento */
-.form-field {
-    transition: opacity 0.5s ease; /* Transição suave da opacidade */
-    opacity: 1; /* Torna os campos visíveis desde o início */
-}
-
-.form-field.show {
-    opacity: 1; /* Torna o campo visível */
-}
-
-.form-field.hide {
-    opacity: 0; /* Torna o campo invisível */
-}
-
+/* Estilos para o campo durante o carregamento */
 .form-field.loading {
-    background-color: #f5ff7d; /* Cor de fundo enquanto carrega */
+    background-color: rgba(245, 255, 125, 0.5); /* Cor de fundo enquanto carrega */
     animation: loadingEffect 1s forwards; /* Animação de carregamento */
 }
 
-/* Estilo da Luz */
-.luz {
-    opacity: 0; /* Inicialmente invisível */
-    transition: opacity 0.5s ease-in; /* Transição suave para a opacidade */
+/* Fundo esfumado para o efeito de carregamento */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(245, 255, 125, 0.5) 80%, rgba(245, 255, 125, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    z-index: 999;
+    box-shadow: 0px 0px 50px 20px rgba(245, 255, 125, 0.5); /* Adiciona um leve esfumado nas bordas */
 }
 
-/* Classe ativa para fade-in */
-.luz.active {
-    opacity: 1; /* Visível */
-}
-
-/* Ajustes Responsivos */
-@media (max-width: 768px) {
-    .contact-form-container {
-        padding: 10px;
-        width: 100%;
-    }
-    input, textarea, button {
-        font-size: 1rem;
-    }
+.background.show {
+    opacity: 1;
 }
 
 /* Keyframes de Animação */
@@ -398,4 +374,30 @@
         opacity: 0;
         transform: scale(0.9); /* Um pouco menor ao sair */
     }
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 10px;
+        width: 100%;
+    }
+    input, textarea, button {
+        font-size: 1rem;
+    }
+}
+
+/* Efeito de deslizamento para os campos */
+.form-field {
+    transition: opacity 1s ease; /* Transição suave */
+    opacity: 1; /* Opacidade padrão */
+}
+
+.form-field.hide {
+    opacity: 0; /* Campo invisível quando escondido */
+    pointer-events: none; /* Desabilita a interação com o campo escondido */
+}
+
+.form-field.animate {
+    transform: translateY(-10px); /* Move um pouco para cima */
 }
