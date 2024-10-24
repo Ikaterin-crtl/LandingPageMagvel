@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
             currentIndex = 0;
             clearInterval(intervalId);
             resetQuadrados();
-            setTimeout(startEffect, 5000); // Reduzido de 13000ms para 5000ms
+            setTimeout(startEffect, 5000);
         }
     };
 
     const startEffect = () => {
-        intervalId = setInterval(activateQuadrados, 100); // Reduzido de 150ms para 100ms
+        intervalId = setInterval(activateQuadrados, 100);
     };
 
     const handleScroll = () => {
@@ -68,21 +68,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Efeito de deslizamento de cor dentro do campo
-    function simulateLoading() {
+    const simulateLoading = () => {
         if (currentFieldIndex < fields.length) {
             const currentField = fields[currentFieldIndex];
 
-            // Adiciona a classe que ativa a animação do deslizamento
             currentField.classList.add('animate');
 
             setTimeout(() => {
-                // Remove a animação após ser concluída
                 currentField.classList.remove('animate');
                 currentField.classList.add('exit');
 
-                // Verifica se ainda há campos a serem processados
                 if (currentFieldIndex < fields.length) {
-                    // Espere a animação de saída terminar antes de ocultar o campo
                     setTimeout(() => {
                         currentField.classList.add('hide'); // Esconde o campo
                         currentFieldIndex++;
@@ -90,20 +86,21 @@ document.addEventListener("DOMContentLoaded", function () {
                             fields[currentFieldIndex].classList.remove('hide'); // Mostra o próximo campo
                             simulateLoading(); // Passa para o próximo campo
                         } else {
-                            // Reinicia o efeito para voltar ao primeiro campo
                             setTimeout(() => {
                                 fields.forEach(field => {
                                     field.classList.add('hide'); // Esconde todos os campos
                                 });
-                                currentFieldIndex = 0; // Reinicia o índice
-                                fields[currentFieldIndex].classList.remove('hide'); // Mostra o primeiro campo novamente
-                            }, 1000); // Tempo para exibir a mensagem de feedback ou qualquer outra animação
+                                currentFieldIndex = 0;
+                                window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para cima
+                                alert('Formulário enviado com sucesso!'); // Feedback ao usuário
+                                form.reset(); // Limpa o formulário após o envio
+                            }, 300); // Tempo para ocultar
                         }
-                    }, 500); // Tempo da animação de saída
+                    }, 300); // Tempo da animação de saída reduzido
                 }
-            }, 1000); // Tempo que a animação dura (igual ao CSS transition)
+            }, 700); // Tempo total que a animação dura
         }
-    }
+    };
 
     // Envio do formulário
     form.addEventListener('submit', async function (event) {
@@ -136,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Oculta o formulário
             form.style.display = 'none';
-
             // Rola suavemente para o topo
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
